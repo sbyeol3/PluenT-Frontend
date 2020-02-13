@@ -1,0 +1,20 @@
+.Lecture { 
+  text-align: center;
+}
+
+.Lecture ul{
+  padding: 10px;
+}
+
+img{
+  width: 100%;
+  border: 0px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-left: 30px;
+  text-align: left;
+}

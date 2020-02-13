@@ -1,0 +1,41 @@
+.LectForm{
+  background-color:white;
+  width:30%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  margin : 20px 20px 20px 20px;
+  text-overflow: ellipsis;
+  padding:0 20px;
+  box-shadow: 0 8px 10px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133,0.22);
+}
+
+.Lect_Column{
+width:30%;
+box-sizing:border-box;
+text-overflow: ellipsis;
+}
+
+.Lect_Column:last-child{
+padding:20px 0;
+width:60%;
+}
+
+.Lect h1{
+font-size:15px;
+font-weight: 800;
+}
+
+.Lect .Lect_Contents {
+text-overflow: ellipsis;
+color:#B4B5BD;
+overflow: hidden;
+}
+
+.Lect .Lect_Img {
+height: 100px;
+max-width: 100%;
+position: relative;
+top:5px;
+}

@@ -1,0 +1,63 @@
+@font-face{
+  font-family: 'AppleSDGothicNeoB';
+  src: url(../fonts/AppleSDGothicNeoB.ttf) format('truetype');
+}
+
+.Main {
+  text-align: center;
+}
+
+.logo{
+  width: 100px;
+}
+
+.Slide {
+  margin-bottom: 0;
+}
+
+.Slide::img{
+  margin-bottom: 0;
+}
+
+.Main_function h2{
+  margin-bottom: 100px;
+}
+
+.Main_section{
+  height: 1000px;
+}
+
+.Main_intro{
+  margin: 10px;
+  margin-bottom: 50px;
+}
+
+.Intro_Exp{
+  margin-left: 40px;
+}
+
+.Intro_Title {
+  font-size: 25px;
+  font-family: 'AppleSDGothicNeoB';
+  margin-bottom: 20px;
+}
+
+.Main_text{
+  text-align: left;
+  padding-left: 40px;
+  float: left;
+  padding-top: 50px;
+  height: 300px;
+  width: 600px;
+}
+
+.Main_img{
+  width: 500px;
+  height: 300px;
+  float: right;
+}
+
+.Main_img img{
+  width: 400px;
+  height: 250px;
+}

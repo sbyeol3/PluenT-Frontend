@@ -1,0 +1,1 @@
+제목:<input type="text" name="title" value={this.state.inputTitle} onChange={this.handleChange} required />

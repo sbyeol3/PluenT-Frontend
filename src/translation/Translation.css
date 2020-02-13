@@ -11,6 +11,11 @@
   height: 500px;
 }
 
+.trans_right .trans_output{
+  width: 500px;
+  height: 500px;
+}
+
 .trans_left {
   font-size: 13px;
 }

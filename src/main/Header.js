@@ -28,6 +28,9 @@ class Header extends Component{
           <li class="nav-item">
             <a class="nav-link" href="#">나의발표관리</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://10.83.32.215:9080/plt/login">로그인</a>
+          </li>
         </ul>
       </div>
     </nav>

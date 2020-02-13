@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Translation.css';
 import { Jumbotron } from 'reactstrap';
 import TransLeft from './TransLeft';
-import TransRight from './TransRight';
+//import TransRight from './TransRight';
 
 class Translation extends Component{
   state= {
@@ -13,7 +13,6 @@ class Translation extends Component{
     return(
       <Jumbotron className="Translation">
         <TransLeft/>
-        <TransRight/>
       </Jumbotron>
     );
   }

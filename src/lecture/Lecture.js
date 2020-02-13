@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
-import banner1 from './images/banner1.svg';
-import unknown from './images/unknown.svg';
+//import banner1 from './images/banner1.svg';
+//import unknown from './images/unknown.svg';
 import LectForm from './LectForm';
 import './Lecture.css';
 
@@ -19,7 +19,7 @@ class Lecture extends Component{
   render(){
     return(
       <div className="Lecture">
-        <img src={banner1} alt='lecture banner'/>
+        <img alt='lecture banner'/>
         <div className="OnlineLecture">
         <h3>영어발표 어렵지 않아요.</h3>
         {/* <ul>{this.state.lectureData.map((lecture, i) => {

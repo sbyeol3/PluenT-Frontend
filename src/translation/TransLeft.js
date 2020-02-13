@@ -1,16 +1,21 @@
 import React, { Component }  from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Translation.css';
+//import TransRight from './TransRight';
+import Tform from './Tform';
 import TransApi from './TransApi';
 import axios from "axios";
 import { Jumbotron } from 'reactstrap';
 
+const callNMTurl = 'http://10.83.32.215:9080/plt/';
 class TransLeft extends Component{
   state= {
+    output:"yessss",
     inputTitle:"",
     query:"",
     sourceLanguage:"ko",
     targetLanguage:"en",
+    voiceGender:"f",
   }
   handleChange = event => { // input의 변화
     this.setState({ query: event.target.value }); // input 들어오면 state 변경
@@ -19,19 +24,35 @@ class TransLeft extends Component{
   handleSubmit = event => {
     event.preventDefault();
     const { query,sourceLanguage,targetLanguage } = this.state;
-    if (query.length>=10) {
+    if (query.length>=4000) {
       alert("4000자 미만으로 입력하세요!");
     }
     else if (query.length===0){
       alert("스크립트를 입력하세요!");
     }
   
-    // translation api 부르기
-    //this._callApi(input, type).then(resultData => {
-      //this.setState({ resultData, isLoading: false, preItems:0, items:12});
-    //});
+    this._callServerNMT();
   };
 
+  _callServerNMT = () => {
+//axios.post(callNMTurl, {
+  axios.post(callNMTurl, {
+        'contents':this.state.query,
+        'origin_lang':this.state.sourceLanguage,
+        'target_lang':this.state.targetLanguage,
+        'gender':this.state.voiceGender,
+        'button':"번역",
+        'title':"title",
+      }
+    )
+		.then((response)=>{
+      console.log(response);
+      //TransRight.setState({output:response.translatedText});
+      //return <Tform transResult={this.state.output}/>
+		})
+    .catch( response => { console.log(response) } );
+  }
+    
   selectsrcChange(e) {
     this.setState({
       sourceLanguage: e.target.value
@@ -41,6 +62,12 @@ class TransLeft extends Component{
   selecttrgChange(e) {
     this.setState({
       targetLanguage: e.target.value
+    })
+  }
+
+  selectVoiceChange(e) {
+    this.setState({
+      voiceGender: e.target.value
     })
   }
 
@@ -100,13 +127,19 @@ class TransLeft extends Component{
 		        <option value="zh-CN">중국어 간체</option><option value="zh-TW">중국어 번체</option><option value="es">스페인어</option></select>
         
 			  번역 후 언어: {this.showTarget(this.state.sourceLanguage)}
+        <br/>음성 목소리 성별:
+			  <select value={this.state.voiceGender} onChange={this.selectVoiceChange.bind(this)}>
+		        <option value="f" selected>여자</option>
+		        <option value="m">남자</option>
+            </select>
         <form className="trans_Text" onSubmit={this.handleSubmit}>
           <textarea className="trans_Input"
             onChange={this.handleChange}
             value={this.state.query}
             placeholder="번역하고자 하는 스크립트를 붙여넣기 하세요."/>
-          <button className="trans_Button">번역</button> <br />
+          <button className="trans_Button" name="button">번역</button> <br />
         </form>
+
       </div>
     );
   }

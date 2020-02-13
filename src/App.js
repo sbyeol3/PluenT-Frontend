@@ -4,8 +4,9 @@ import './App.css';
 import { signIn } from './Auth';
 import Main from './main/Main';
 import Translation from './translation/Translation';
-import Practice from './practice/Practice'
-import Lecture from './lecture/Lecture'
+import Practice from './practice/Practice';
+import Lecture from './lecture/Lecture';
+import Home from './main/Home';
 import Header from './main/Header';
 import Footer from './main/Footer'
 import LoadingIndicator from './LoadingIndicator';
@@ -20,6 +21,12 @@ class App extends Component {
             isAuth: false,
             isLoading: false
         }
+        this.stateRefresh = this.stateRefresh.bind(this);
+    }
+    stateRefresh() {
+        this.setState({
+            isAuth : true,
+        });
     }
 
     loadCurrentUser(){
@@ -70,19 +77,28 @@ class App extends Component {
     }
 
   render() {
+      
       if(this.state.isLoading === true){
           //return <LoadingIndicator/>
       }
-    return (
-        <div className="App">
-            <Header/>
-            <Route exact path="/" component={Main}/>
-            <Route exact path="/translation" component={Translation}/>
-            <Route exact path="/practice" component={Practice}/>
-            <Route exact path="/lecture" component={Lecture}/>
-            <Footer/>
-        </div>
-    );
+    //   if(!this.state.isAuth){
+    //     console.log(this.state.isAuth);
+    //       return (<Home/>);
+    //   }
+
+      //else {
+        return (
+            <div className="App">
+                <Header/>
+                <Route exact path="/" component={Main}/>
+                <Route exact path="/translation" component={Translation}/>
+                <Route exact path="/practice" component={Practice}/>
+                <Route exact path="/lecture" component={Lecture}/>
+                <Footer/>
+            </div>
+        );
+      //}
+
 }
 }
 // <Route path="/about" component={About}/>
